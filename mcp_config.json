@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "macos": {
+      "command": "/bin/sh",
+      "args": [
+        "-c",
+        "for candidate in \"/Applications/RobloxStudio.app/Contents/MacOS/StudioMCP\" ~/Applications/RobloxStudio.app/Contents/MacOS/StudioMCP; do [ -x \"$candidate\" ] && exec \"$candidate\"; done; echo \"Roblox Studio MCP was not found. Install or update Roblox Studio, then reconnect.\" >&2; exit 1"
+      ]
+    },
+    "windows": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "cd /d %LOCALAPPDATA%\\Roblox && .\\mcp.bat"
+      ]
+    }
+  }
+}

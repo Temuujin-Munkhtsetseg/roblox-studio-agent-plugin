@@ -4,6 +4,7 @@ This file has one section per app. **Follow only the section for the app you're 
 
 - Claude Code, Cowork, or claude.ai: read **Claude**.
 - ChatGPT or Codex: read **ChatGPT and Codex**.
+- Antigravity (App, CLI, or IDE): read **Antigravity**.
 
 ---
 
@@ -126,3 +127,34 @@ codex mcp remove <other-name>
 ```
 
 In ChatGPT desktop, remove it under **Settings → MCP servers**. Then restart or open a new chat.
+
+---
+
+## Antigravity
+
+### Registration
+
+This plugin registers Studio's MCP server itself via its plugin configuration (`mcp_config.json`), so there's nothing to add by hand. **Never register or add another Studio MCP server in Antigravity.** The plugin provides two server entries, and only the one for the user's OS connects:
+
+- `macos`
+- `windows`
+
+Only the server matching your OS connects; the other failing or remaining inactive is expected.
+
+### Loading the tools
+
+The server starts when the session starts or when the plugin is enabled. If Studio wasn't installed at that point, the tools aren't loaded yet:
+
+- **Antigravity CLI:** have the user run `/plugin enable roblox-studio` or start a new session (`/new` or restart `agy`) and say **continue Roblox setup**.
+- **Antigravity App / IDE:** have the user start a new conversation and say **continue Roblox setup**.
+
+If the user asked for more than setup, such as making a game, and has to start a new session or thread, ask them to repeat that request there. Don't say setup is finished while the tools are still missing.
+
+### Where this can run
+
+- **Antigravity CLI, Antigravity App, and Antigravity IDE** on macOS or Windows can run the commands in `install.md` directly.
+- **Linux:** If running on Linux (`uname` prints `Linux`), Studio cannot run locally. Say the user needs Roblox Studio on macOS or Windows, and keep helping without Studio.
+
+### Duplicates
+
+If the Studio tools appear twice, the user may have configured Studio's MCP server manually (for example in `~/.gemini/config/mcp_config.json` or `.agents/mcp_config.json`). With the user's approval, remove the manual duplicate entry and reload the session.

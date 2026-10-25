@@ -2,7 +2,7 @@
 
 Roblox's official plugin for AI assistants. Build, script, playtest, and debug your Roblox experiences by talking to your assistant, connected live to Roblox Studio.
 
-Available for **Claude** (Claude Code and Cowork) and **ChatGPT** (the ChatGPT desktop app and Codex).
+Available for **Claude** (Claude Code and Cowork), **ChatGPT** (the ChatGPT desktop app and Codex), and **Google Antigravity** (Antigravity App, CLI, and IDE).
 
 ## Install
 
@@ -20,6 +20,16 @@ codex plugin marketplace add Roblox/roblox-studio-agent-plugin
 
 Then open `/plugins`, install **Roblox Studio**, and start a new thread with `/new`.
 
+**Antigravity CLI (`agy`):**
+
+```bash
+agy plugin install <path-or-repo>
+```
+
+Or open `/plugin`, switch to **Discover**, and install **Roblox Studio**.
+
+**Antigravity App and IDE:** go to **Customizations → Plugins** (or copy into `.agents/plugins/roblox-studio`).
+
 ### Get connected
 
 Ask your assistant:
@@ -34,6 +44,7 @@ Ask "list my open Roblox Studio windows". Your assistant should name the place y
 
 - **Claude Code:** `/mcp` lists `plugin:roblox-studio:macos` and `plugin:roblox-studio:windows`. Only the one for your OS connects, so the other showing as failed is expected.
 - **Codex:** `codex mcp list` shows `Roblox_Studio`.
+- **Antigravity CLI:** `agy plugin list` shows `roblox-studio` with 1 skill and 2 MCP servers (or `/plugin list` in the TUI).
 
 ### Manual setup
 
@@ -73,14 +84,15 @@ For Roblox-specific know-how, your assistant uses the skills built into your ver
 - Roblox Studio on macOS or Windows
 - Claude Code, or Cowork in the Claude desktop app
 - The ChatGPT desktop app (macOS or Windows), or the Codex CLI
+- Google Antigravity (Antigravity App, Antigravity CLI, and Antigravity IDE)
 
-Studio's MCP server runs on your computer, so claude.ai on the web and ChatGPT web and mobile can help you plan and write Luau, but can't connect to Studio.
+Studio's MCP server runs on your computer, so web-only chat interfaces (like claude.ai on the web or ChatGPT web and mobile) without access to a local environment can help you plan and write Luau, but can't connect to Studio.
 
 ## What this plugin runs and sends
 
 The plugin contains no code of its own, only configuration and skill instructions.
 
-- **Runs** Roblox Studio's own MCP server, installed with Studio: `StudioMCP` in `RobloxStudio.app` on macOS (in `/Applications` or `~/Applications`), or `%LOCALAPPDATA%\Roblox\mcp.bat` on Windows. Claude starts it through `/bin/sh` or `cmd.exe`. In ChatGPT and Codex, setup registers it as `Roblox_Studio`.
+- **Runs** Roblox Studio's own MCP server, installed with Studio: `StudioMCP` in `RobloxStudio.app` on macOS (in `/Applications` or `~/Applications`), or `%LOCALAPPDATA%\Roblox\mcp.bat` on Windows. Claude and Antigravity start it through `/bin/sh` or `cmd.exe`. In ChatGPT and Codex, setup registers it as `Roblox_Studio`.
 - **During setup, after one approval from you,** it may:
   - download the Studio installer from `setup.rbxcdn.com`, check Roblox's signature, and run it
   - open Studio
@@ -93,7 +105,7 @@ The plugin contains no code of its own, only configuration and skill instruction
 
 ## Privacy Policy
 
-This plugin is published by Roblox Corporation. Data handled by Roblox Studio and Roblox services is covered by the [Roblox Privacy and Cookie Policy](https://www.roblox.com/info/privacy). Conversation data is covered by your AI provider's policy: [Anthropic's Privacy Policy](https://www.anthropic.com/legal/privacy) for Claude, or [OpenAI's Privacy Policy](https://openai.com/policies/privacy-policy) for ChatGPT and Codex.
+This plugin is published by Roblox Corporation. Data handled by Roblox Studio and Roblox services is covered by the [Roblox Privacy and Cookie Policy](https://www.roblox.com/info/privacy). Conversation data is covered by your AI provider's policy: [Anthropic's Privacy Policy](https://www.anthropic.com/legal/privacy) for Claude, [OpenAI's Privacy Policy](https://openai.com/policies/privacy-policy) for ChatGPT and Codex, or [Google's Privacy Policy](https://policies.google.com/privacy) for Antigravity.
 
 ## Issues and feedback
 
